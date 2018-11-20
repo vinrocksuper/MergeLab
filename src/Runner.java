@@ -3,7 +3,10 @@ public class Runner {
     {
         int[] test = {4,3,2,1};
         mergeSort(test);
-
+        System.out.println(test[0]);
+        System.out.println(test[1]);
+        System.out.println(test[2]);
+        System.out.println(test[3]);
 
     }
     public static void mergeSort(int[] arr)
@@ -42,6 +45,6 @@ public class Runner {
 
             }
         }
-       
+
     }
 }
