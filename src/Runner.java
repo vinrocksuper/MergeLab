@@ -1,12 +1,18 @@
 public class Runner {
     public static void main(String[] args)
     {
-        int[] test = {4,3,2,1};
+        int[] test = new int[100000];
+        for(int i=0;i<100000;i++)
+        {
+            test[i] = (int)(Math.random()*1001);
+        }
         mergeSort(test);
-        System.out.println(test[0]);
-        System.out.println(test[1]);
-        System.out.println(test[2]);
-        System.out.println(test[3]);
+
+        for(int i=0;i<test.length;i++)
+        {
+            System.out.println(test[i]);
+        }
+
 
     }
     public static void mergeSort(int[] arr)
@@ -27,23 +33,36 @@ public class Runner {
     }
     public static void merge(int[] arr,int left,int mid,int right,int[] temp)
     {
-        String s = "";
-        for(int i=left;i<=right;i++)
+        int i=left;
+        int j=mid+1;
+        int k=left;
+        while(i<=mid && j<=right){
+            if(arr[i]<arr[j])
+            {
+                temp[k]=arr[i];
+                i++;
+            }
+            else{
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+
+        }
+        while(i<=mid){
+            temp[k] = arr[i];
+            i++;
+            k++;
+        }
+        while(j<=right)
         {
-            if(arr[i]<arr[right])
-            {
-                temp[i] = arr[left];
-
-
-
-            }
-            else
-            {
-                temp[i] = arr[right];
-
-
-
-            }
+            temp[k]  =arr[j] ;
+            j++;
+            k++;
+        }
+        for(int z=left;z<=right;z++)
+        {
+            arr[z] = temp[z];
         }
 
     }
